@@ -132,9 +132,9 @@ impl AccountTransaction {
             }
             Self::Invoke(_) => {
                 vec![
-                    TransactionVersion(StarkFelt::from(0)),
-                    TransactionVersion(StarkFelt::from(1)),
-                    TransactionVersion(StarkFelt::from(2)),
+                    TransactionVersion(StarkFelt::from(0_u8)),
+                    TransactionVersion(StarkFelt::from(1_u8)),
+                    TransactionVersion(StarkFelt::from(2_u8)),
                 ]
             }
             _ => vec![TransactionVersion(StarkFelt::from(1_u8))],
