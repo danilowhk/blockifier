@@ -33,8 +33,7 @@ pub trait ExecutableTransaction<S: StateReader>: Sized {
         let mut transactional_state = CachedState::new(MutRefState::new(state));
         let execution_result = self.execute_raw(&mut transactional_state, block_context);
 
-        println!("-------------------");
-        println!("EXECUTION RESULT: {:#?} ",execution_result);
+
 
         match execution_result {
             Ok(value) => {

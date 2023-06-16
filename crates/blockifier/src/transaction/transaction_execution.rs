@@ -72,6 +72,9 @@ impl<S: StateReader> ExecutableTransaction<S> for L1HandlerTransaction {
         let mut context = ExecutionContext::new(block_context.clone(), tx_context);
         let execute_call_info = self.run_execute(state, &mut context)?;
 
+        println!("-------------------");
+        println!("EXECUTION CALL INFO RESULT: {:#?} ",execute_call_info);
+
         let call_infos =
             if let Some(call_info) = execute_call_info.as_ref() { vec![call_info] } else { vec![] };
         // The calldata includes the "from" field, which is not a part of the payload.
