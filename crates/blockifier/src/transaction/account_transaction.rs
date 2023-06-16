@@ -315,6 +315,10 @@ impl<S: StateReader> ExecutableTransaction<S> for AccountTransaction {
         // Handle transaction-type specific execution.
         // The validation phase in a `DeployAccount` transaction happens after execution.
         let execute_call_info = self.run_execute(state, &mut context)?;
+
+
+        println!("-------------------");
+        println!("EXECUTION CALL INFO RESULT AccountTransaction: {:#?} ",execute_call_info);
         let validate_call_info = match &self {
             Self::DeployAccount(_) => self.validate_tx(state, &mut context)?,
             Self::Declare(_) | Self::Invoke(_) => early_validate_call_info,

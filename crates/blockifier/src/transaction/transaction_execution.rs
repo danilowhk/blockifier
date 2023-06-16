@@ -73,7 +73,7 @@ impl<S: StateReader> ExecutableTransaction<S> for L1HandlerTransaction {
         let execute_call_info = self.run_execute(state, &mut context)?;
 
         println!("-------------------");
-        println!("EXECUTION CALL INFO RESULT: {:#?} ",execute_call_info);
+        println!("EXECUTION CALL INFO RESULT L1HandlerTransaction: {:#?} ",execute_call_info);
 
         let call_infos =
             if let Some(call_info) = execute_call_info.as_ref() { vec![call_info] } else { vec![] };
